@@ -1,6 +1,4 @@
-import Feed from "@/components/feed";
-
-export default function Home() {
+export default function Form() {
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
@@ -11,8 +9,6 @@ export default function Home() {
       <p className="desc text-center">
         Next.js Creates Share Notes. Create and share useful notes.
       </p>
-
-      <Feed />
     </section>
   );
 }

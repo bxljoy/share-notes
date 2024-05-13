@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
-import { inter } from "@/components/fonts";
 import { Metadata } from "next";
+import Nav from "@/components/nav";
+import Provider from "@/components/provider";
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body>
+        <div className="main">
+          <div className="gradient" />
+        </div>
+
+        <main className="app">
+          <Nav />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
