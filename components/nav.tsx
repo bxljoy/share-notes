@@ -12,12 +12,15 @@ import {
 } from "next-auth/react";
 
 type Provider = {
+  callbackUrl: string;
   id: string;
   name: string;
-  type: LiteralUnion<"oauth" | "email" | "credentials", string>;
+  signinUrl: string;
+  type: string;
 };
 
 export default function Nav() {
+  const session = useSession();
   const isUserLoggedIn = true;
   const [providers, setProviders] = useState<Record<string, Provider> | null>(
     null
@@ -27,6 +30,7 @@ export default function Nav() {
   useEffect(() => {
     const fetchProviders = async () => {
       const response = await getProviders();
+      console.log(response);
       setProviders(response);
     };
     fetchProviders();
