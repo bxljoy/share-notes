@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Nav from "@/components/nav";
 import Provider from "@/components/provider";
 import { Session } from "next-auth";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
   title: {
@@ -22,16 +23,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider session={session}>
-          <div className="main">
-            <div className="gradient" />
-          </div>
+        {/* <Provider session={session}> */}
+        <div className="main">
+          <div className="gradient" />
+        </div>
 
-          <main className="app">
-            <Nav />
-            {children}
-          </main>
-        </Provider>
+        <main className="app">
+          {/* <Nav /> */}
+          <Header />
+          {children}
+        </main>
+        {/* </Provider> */}
       </body>
     </html>
   );

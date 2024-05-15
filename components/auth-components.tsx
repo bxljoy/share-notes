@@ -1,4 +1,5 @@
 import { signIn, signOut } from "@/auth";
+import { Button } from "./ui/button";
 
 export function SignIn({ provider }: { provider?: string }) {
   return (
@@ -8,13 +9,7 @@ export function SignIn({ provider }: { provider?: string }) {
         await signIn(provider);
       }}
     >
-      <button
-        type="button"
-        onClick={() => signIn(provider)}
-        className="black_btn"
-      >
-        Sign In
-      </button>
+      <Button className="black_btn">Sign In</Button>
     </form>
   );
 }
@@ -28,9 +23,7 @@ export function SignOut() {
       }}
       className="w-full"
     >
-      <button type="button" onClick={() => signOut()} className="black_btn">
-        Sign Out
-      </button>
+      <Button className="black_btn">Sign Out</Button>
     </form>
   );
 }
