@@ -20,7 +20,7 @@ type Provider = {
 };
 
 export default function Nav() {
-  const session = useSession();
+  //   const session = useSession();
   const isUserLoggedIn = true;
   const [providers, setProviders] = useState<Record<string, Provider> | null>(
     null
