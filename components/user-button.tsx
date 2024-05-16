@@ -6,9 +6,11 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "./ui/dropdown-menu";
-import { SignIn, SignOut } from "./auth-components";
+import { SignIn } from "./auth-components";
 import CustomLink from "./custom-link";
+import { LogOut, Settings, CircleUserRound, Podcast } from "lucide-react";
 
 export default async function UserButton() {
   const session = await auth();
@@ -31,7 +33,7 @@ export default async function UserButton() {
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          className="min-w-[220px] bg-white rounded-lg p-[5px] m-6"
+          className="min-w-[260px] min-h-[240px] bg-white rounded-2xl p-[5px] m-6 flex flex-col justify-between shadow-lg"
           sideOffset={5}
         >
           <DropdownMenuLabel className="font-bold text-center">
@@ -44,16 +46,21 @@ export default async function UserButton() {
               </p>
             </div>
           </DropdownMenuLabel>
-          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
-            <CustomLink href="/profile">Profile</CustomLink>
+          <DropdownMenuItem className="group text-xl leading-2 text-violet11 rounded-lg flex items-center gap-3 hover:bg-violet9 hover:text-violet1 hover:rounded-lg">
+            <CircleUserRound />
+            <CustomLink href="/account">Account</CustomLink>
           </DropdownMenuItem>
-          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
-            <CustomLink href="/profile/settings">Settings</CustomLink>
+          <DropdownMenuItem className="group text-xl leading-2 text-violet11 rounded-lg flex items-center gap-3 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:rounded-lg">
+            <Settings />
+            <CustomLink href="/settings">Settings</CustomLink>
           </DropdownMenuItem>
-          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
-            <CustomLink href="/profile/subscription">Subscription</CustomLink>
+          <DropdownMenuItem className="group text-xl leading-2 text-violet11 rounded-lg flex items-center gap-3 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:rounded-lg">
+            <Podcast />
+            <CustomLink href="/subscription">Subscription</CustomLink>
           </DropdownMenuItem>
-          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
+          <DropdownMenuSeparator className="h-[1px] bg-violet6 m-[5px]" />
+          <DropdownMenuItem className="group text-xl leading-2 text-violet11 rounded-lg flex items-center gap-3 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:rounded-lg">
+            <LogOut />
             <CustomLink href="/api/auth/signout">Sign Out</CustomLink>
           </DropdownMenuItem>
         </DropdownMenuContent>
