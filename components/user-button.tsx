@@ -17,7 +17,7 @@ export default async function UserButton() {
     <div className="flex gap-2 items-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Avatar className="w-8 h-8">
+          <Avatar className="w-10 h-10 hover:cursor-pointer">
             <AvatarImage
               src={
                 session.user.image ??
@@ -31,7 +31,7 @@ export default async function UserButton() {
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          className="min-w-[220px] bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
+          className="min-w-[220px] bg-white rounded-lg p-[5px] m-6"
           sideOffset={5}
         >
           <DropdownMenuLabel className="font-bold text-center">
