@@ -15,9 +15,6 @@ export default async function UserButton() {
   if (!session?.user) return <SignIn />;
   return (
     <div className="flex gap-2 items-center">
-      <span className="hidden text-sm sm:inline-flex">
-        {session.user.email}
-      </span>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar className="w-8 h-8">
@@ -33,8 +30,11 @@ export default async function UserButton() {
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56" align="end" forceMount>
-          <DropdownMenuLabel className="font-normal">
+        <DropdownMenuContent
+          className="min-w-[220px] bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
+          sideOffset={5}
+        >
+          <DropdownMenuLabel className="font-bold text-center">
             <div className="flex flex-col space-y-1">
               <p className="text-sm font-medium leading-none">
                 {session.user.name}
@@ -44,20 +44,17 @@ export default async function UserButton() {
               </p>
             </div>
           </DropdownMenuLabel>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
             <CustomLink href="/profile">Profile</CustomLink>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
             <CustomLink href="/profile/settings">Settings</CustomLink>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
             <CustomLink href="/profile/subscription">Subscription</CustomLink>
           </DropdownMenuItem>
-          <DropdownMenuLabel className="font-normal">Account</DropdownMenuLabel>
-          <DropdownMenuItem>
-            <CustomLink href="/api/auth/signout" className="">
-              Sign Out
-            </CustomLink>
+          <DropdownMenuItem className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
+            <CustomLink href="/api/auth/signout">Sign Out</CustomLink>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
