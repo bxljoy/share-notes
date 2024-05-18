@@ -14,7 +14,14 @@ import { LogOut, Settings, CircleUserRound, Podcast } from "lucide-react";
 
 export default async function UserButton() {
   const session = await auth();
-  if (!session?.user) return <SignIn />;
+  if (!session?.user)
+    return (
+      <div className="flex items-center justify-center gap-6">
+        <SignIn />
+        <SignIn />
+        <SignIn />
+      </div>
+    );
   return (
     <div className="flex gap-2 items-center">
       <DropdownMenu>
