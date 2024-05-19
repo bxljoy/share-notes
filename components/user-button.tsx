@@ -10,6 +10,7 @@ import {
 } from "./ui/dropdown-menu";
 import { SignIn } from "./auth-components";
 import SignUp from "./signup";
+import SearchBar from "./ui/search-bar";
 import CustomLink from "./custom-link";
 import { LogOut, Settings, CircleUserRound, Podcast } from "lucide-react";
 
@@ -18,7 +19,7 @@ export default async function UserButton() {
   if (!session?.user)
     return (
       <div className="flex items-center justify-center gap-6">
-        <SignIn />
+        <SearchBar />
         <SignIn />
         <SignUp />
       </div>

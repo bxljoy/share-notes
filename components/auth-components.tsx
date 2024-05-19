@@ -9,7 +9,7 @@ export function SignIn({ provider }: { provider?: string }) {
         await signIn(provider);
       }}
     >
-      <Button className="black_btn">Sign In</Button>
+      <Button className="hover:opacity-70">Log In</Button>
     </form>
   );
 }
