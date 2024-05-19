@@ -2,7 +2,6 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Session } from "next-auth";
 import Header from "@/components/header";
-import { dancingScript } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${dancingScript.className}`}>
+      <body>
         <div className="main">
           <div className="gradient" />
         </div>
