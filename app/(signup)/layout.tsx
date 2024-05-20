@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
+import { inter } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -17,11 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="main">
-          <div className="gradient" />
-        </div>
-
-        <main className="app">{children}</main>
+        <main className={inter.className}>{children}</main>
       </body>
     </html>
   );
