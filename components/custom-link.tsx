@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import ArrowTopRightOnSquareIcon from "@heroicons/react/20/solid/ArrowTopRightOnSquareIcon";
 import Link from "next/link";
 
 interface CustomLinkProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
@@ -35,7 +34,6 @@ const CustomLink = ({
       {...rest}
     >
       <span>{children}</span>
-      <ArrowTopRightOnSquareIcon className="inline-block ml-0.5 w-4 h-4" />
     </Link>
   );
 };
