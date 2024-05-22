@@ -4,8 +4,8 @@ import { inter } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Sign Up",
-    default: "Sign Up",
+    template: "%s | Share Notes",
+    default: "Share Notes",
   },
   description: "Share Notes Sign Up Page.",
 };

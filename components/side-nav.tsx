@@ -4,7 +4,7 @@ import { dancingScript } from "@/styles/fonts";
 export default function SideNav() {
   return (
     <div className="flex h-full flex-col md:px-2">
-      <div className="fixed left-0 top-0 z-[-10] w-96 h-screen">
+      <div className="fixed left-0 top-0 z-[-10] w-[27rem] h-screen">
         <video
           playsInline
           autoPlay

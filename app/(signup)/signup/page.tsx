@@ -1,4 +1,10 @@
 import SideNav from "@/components/side-nav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sign Up",
+  description: "Sign Up Page.",
+};
 
 export default function SignUp() {
   return (
