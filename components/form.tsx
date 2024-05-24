@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Note } from "@/utils/definitions";
+import { NoteContent } from "@/utils/definitions";
 
 export default function Form({
   type,
@@ -9,7 +9,7 @@ export default function Form({
   handleSubmit,
 }: {
   type: string;
-  note: Note;
+  note: NoteContent;
   setNote: any;
   submitting: boolean;
   handleSubmit: any;
