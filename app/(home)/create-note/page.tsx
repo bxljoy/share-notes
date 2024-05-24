@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Form from "@/components/form";
+import { NoteContent } from "@/utils/definitions";
 
 export default function CreateNote() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function CreateNote() {
   const [note, setNote] = useState({
     note: "",
     tag: "",
-  });
+  } as NoteContent);
 
   const createNote = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

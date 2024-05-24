@@ -1,9 +1,8 @@
-import { Note } from "@/utils/definitions";
 import { connectDatabase } from "@/utils/database";
-import NoteModel from "@/models/note";
+import Note from "@/models/note";
 
 interface RequestData {
-  note: Note;
+  note: string;
   tag: string;
   userId: string;
 }
@@ -15,10 +14,9 @@ export async function POST(request: Request): Promise<void> {
   try {
     await connectDatabase();
 
-    await NoteModel.create({
+    await Note.create({
       note,
       tag,
-      userId,
     });
   } catch (error) {
     console.error(error);
