@@ -34,6 +34,7 @@ export default function Form({
           </span>
 
           <textarea
+            name="note"
             value={note.note}
             onChange={(e) => setNote({ ...note, note: e.target.value })}
             placeholder="Write your note here"
@@ -50,6 +51,7 @@ export default function Form({
             </span>
           </span>
           <input
+            name="tag"
             value={note.tag}
             onChange={(e) => setNote({ ...note, tag: e.target.value })}
             type="text"

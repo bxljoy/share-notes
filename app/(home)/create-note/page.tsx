@@ -17,6 +17,11 @@ export default function CreateNote() {
 
   const createNote = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (session?.user?.id === undefined) {
+      console.error("User not found");
+      router.push("/api/auth/signin");
+      return;
+    }
     setSubmitting(true);
     try {
       const response = await fetch("/api/note/new", {
