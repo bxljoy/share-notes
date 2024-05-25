@@ -1,14 +1,41 @@
 "use client";
 
 import NoteCard from "./note-card";
-import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
+import { NoteContent, NoteCardListProps } from "@/utils/definitions";
+
+const NoteCardList = ({ data, handleTagClick }: NoteCardListProps) => {
+  return (
+    <div className="mt-16 ">
+      {data.map((note: NoteContent, index: number) => (
+        <NoteCard key={index} note={note} handleTagClick={handleTagClick} />
+      ))}
+    </div>
+  );
+};
 
 export default function Feed() {
+  const [allNotes, setAllNotes] = useState([]);
+  const [searchedResults, setSearchedResults] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const fetchNotes = async () => {
+    const response = await fetch("/api/note");
+    const data = await response.json();
+    console.log(data);
+    setAllNotes(data);
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
+  };
+
+  const handleTagClick = (tag: string) => {
+    setSearchText(tag);
   };
 
   return (
@@ -23,6 +50,13 @@ export default function Feed() {
           className="search_input"
         />
       </form>
+
+      {/* All Notes */}
+      {searchText ? (
+        <NoteCardList data={searchedResults} handleTagClick={handleTagClick} />
+      ) : (
+        <NoteCardList data={allNotes} handleTagClick={handleTagClick} />
+      )}
     </section>
   );
 }
