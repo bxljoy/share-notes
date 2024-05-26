@@ -1,4 +1,15 @@
-export default function Profile() {
+"use client";
+
+import { useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+import Profile from "@/components/profile";
+
+export default function Home() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
@@ -6,9 +17,9 @@ export default function Profile() {
         <br className="max-md:hidden" />
         <span className="orange_gradient text-center">AI-Powered Notes</span>
       </h1>
-      <p className="desc text-center">
-        Next.js Creates Share Notes. Create and share useful notes.
-      </p>
+      <div className="desc text-center">
+        <Profile name={session?.user?.name} />
+      </div>
     </section>
   );
 }

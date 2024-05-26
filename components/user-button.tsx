@@ -18,14 +18,14 @@ export default async function UserButton() {
   const session = await auth();
   if (!session?.user)
     return (
-      <div className="flex items-center justify-center gap-6 pl-48">
+      <div className="flex items-center justify-center gap-6 lg:pl-48">
         <SearchBar />
         <SignIn />
         <SignUp />
       </div>
     );
   return (
-    <div className="flex gap-2 items-center pl-[33rem]">
+    <div className="flex gap-2 items-center lg:pl-[33rem]">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar className="w-10 h-10 hover:cursor-pointer">

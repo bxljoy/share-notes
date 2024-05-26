@@ -1,7 +1,7 @@
-export default function Profile() {
+export default function Profile({ name }: { name: string | undefined | null }) {
   return (
-    <section className="w-full flex-center flex-col">
-      <div>Profile</div>
-    </section>
+    <div className="w-full flex-center flex-col">
+      <div>{name}</div>
+    </div>
   );
 }
