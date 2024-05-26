@@ -7,8 +7,8 @@ import { NoteContent, NoteCardListProps } from "@/utils/definitions";
 const NoteCardList = ({ data, handleTagClick }: NoteCardListProps) => {
   return (
     <div className="mt-16 ">
-      {data.map((note: NoteContent, index: number) => (
-        <NoteCard key={index} note={note} handleTagClick={handleTagClick} />
+      {data.map((note: NoteContent) => (
+        <NoteCard key={note._id} note={note} handleTagClick={handleTagClick} />
       ))}
     </div>
   );
