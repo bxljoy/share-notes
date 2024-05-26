@@ -8,7 +8,13 @@ const NoteCardList = ({ data, handleTagClick }: NoteCardListProps) => {
   return (
     <div className="mt-16 ">
       {data.map((note: NoteContent) => (
-        <NoteCard key={note._id} note={note} handleTagClick={handleTagClick} />
+        <NoteCard
+          key={note._id}
+          note={note}
+          handleTagClick={handleTagClick}
+          handleEdit={() => {}}
+          handleDelete={() => {}}
+        />
       ))}
     </div>
   );

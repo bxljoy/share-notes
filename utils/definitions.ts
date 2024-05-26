@@ -9,6 +9,7 @@ export type UserContent = {
   _id: string;
   username: string;
   email: string;
+  image?: string;
 };
 
 export interface NoteCardListProps {
@@ -19,4 +20,6 @@ export interface NoteCardListProps {
 export interface NoteCardProps {
   note: NoteContent;
   handleTagClick: (tag: string) => void;
+  handleEdit: (note: NoteContent) => void;
+  handleDelete: (note: NoteContent) => void;
 }

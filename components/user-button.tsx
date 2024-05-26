@@ -65,7 +65,7 @@ export default async function UserButton() {
           </DropdownMenuItem>
           <DropdownMenuItem className="group text-xl leading-2 text-violet11 rounded-lg flex items-center gap-3 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:rounded-lg">
             <Podcast />
-            <CustomLink href="/subscription">Subscription</CustomLink>
+            <CustomLink href="/profile">Profile</CustomLink>
           </DropdownMenuItem>
           <DropdownMenuSeparator className="h-[1px] bg-violet6 m-[5px]" />
           <DropdownMenuItem className="group text-xl leading-2 text-violet11 rounded-lg flex items-center gap-3 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 hover:rounded-lg">
