@@ -19,3 +19,23 @@ export async function GET(
     });
   }
 }
+
+export async function PATCH(
+  request: Request,
+  { params }: { params: { id: string } }
+): Promise<Response> {
+  try {
+    const { id } = params;
+    const data = (await request.json()) as { note: string; tag: string };
+
+    await connectDatabase();
+
+    const note = await Note.findByIdAndUpdate(id, data, { new: true });
+    if (!note) return new Response("Note Not Found", { status: 404 });
+
+    return new Response(JSON.stringify(note), { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return new Response("Error updating note", { status: 500 });
+  }
+}
