@@ -39,3 +39,21 @@ export async function PATCH(
     return new Response("Error updating note", { status: 500 });
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+): Promise<Response> {
+  try {
+    const { id } = params;
+    await connectDatabase();
+
+    const note = await Note.findByIdAndDelete(id);
+    if (!note) return new Response("Note Not Found", { status: 404 });
+
+    return new Response(JSON.stringify(note), { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return new Response("Error deleting note", { status: 500 });
+  }
+}

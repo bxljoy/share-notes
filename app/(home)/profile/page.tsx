@@ -29,9 +29,7 @@ export default function Home() {
   };
 
   const handleDelete = async (note: NoteContent) => {
-    const hasConfirmed = confirm(
-      "Are you sure you want to delete this prompt?"
-    );
+    const hasConfirmed = confirm("Are you sure you want to delete this note?");
 
     if (hasConfirmed) {
       try {
