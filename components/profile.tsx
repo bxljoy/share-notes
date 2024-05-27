@@ -1,7 +1,37 @@
-export default function Profile({ name }: { name: string | undefined | null }) {
+import NoteCard from "./note-card";
+import { NoteContent } from "@/utils/definitions";
+
+export default function Profile({
+  name,
+  desc,
+  data,
+  handleEdit,
+  handleDelete,
+}: {
+  name: string;
+  desc: string;
+  data: Array<NoteContent>;
+  handleEdit?: (note: NoteContent) => void;
+  handleDelete?: (note: NoteContent) => void;
+}) {
   return (
-    <div className="w-full flex-center flex-col">
-      <div>{name}</div>
-    </div>
+    <section className="w-full">
+      <h1 className="head_text text-left">
+        <span className="blue_gradient">{name} Profile</span>
+      </h1>
+      <p className="desc text-left">{desc}</p>
+
+      <div className="mt-10 prompt_layout">
+        {data.map((note: NoteContent) => (
+          <NoteCard
+            key={note._id}
+            note={note}
+            handleTagClick={() => {}}
+            handleEdit={() => handleEdit && handleEdit(note)}
+            handleDelete={() => handleDelete && handleDelete(note)}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
