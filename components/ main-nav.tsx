@@ -3,7 +3,7 @@ import { SquarePen } from "lucide-react";
 
 export default function NavBar() {
   return (
-    <div className="flex flex-row items-center justify-between gap-10 lg:pr-40">
+    <div className="flex flex-row items-center justify-between gap-10">
       <Link
         href="/create-note"
         className="dropdown_link p-2 hover:bg-slate-200 rounded-md"
