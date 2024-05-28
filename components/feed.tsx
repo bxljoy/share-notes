@@ -85,7 +85,7 @@ export default function Feed() {
       <form className="relative w-full flex-center" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search for a tag or a username"
+          placeholder="Search for a tag or a username or a note or an email"
           value={searchText}
           onChange={handleSearchChange}
           required

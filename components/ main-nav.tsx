@@ -10,7 +10,7 @@ export default function NavBar() {
       >
         <SquarePen />
       </Link>
-      <Link href="/server" className="text-2xl font-bold hover:opacity-60">
+      {/* <Link href="/server" className="text-2xl font-bold hover:opacity-60">
         Server
       </Link>
       <Link
@@ -18,7 +18,7 @@ export default function NavBar() {
         className="text-2xl font-bold hover:opacity-60"
       >
         Middleware Example
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -19,9 +19,9 @@ export default async function UserButton() {
   if (!session?.user)
     return (
       <div className="flex items-center justify-center gap-6 lg:pl-48">
-        <SearchBar />
+        {/* <SearchBar /> */}
         <SignIn />
-        <SignUp />
+        {/* <SignUp /> */}
       </div>
     );
   return (
