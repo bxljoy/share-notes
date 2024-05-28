@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <Profile
       name="My"
-      desc="Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination"
+      desc="Welcome to your personalized profile page. Share your exceptional notes and inspire others with the power of your imagination"
       data={myNotes}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
