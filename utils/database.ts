@@ -11,7 +11,7 @@ if (!MONGODB_URI) {
   );
 }
 
-export async function connectDatabase() {
+const connectDatabase = async () => {
   mongoose.set("strictQuery", true);
 
   if (isConnected) {
@@ -26,4 +26,6 @@ export async function connectDatabase() {
   } catch (error) {
     console.log("Error connecting to MongoDB: ", error);
   }
-}
+};
+
+export { connectDatabase };
