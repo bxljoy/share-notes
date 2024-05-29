@@ -21,7 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       try {
         const sessionUser = await User.findOne({ email: session.user.email });
-        if (!sessionUser) {
+        if (!sessionUser || !sessionUser._id) {
           return session;
         }
         session.user.id = sessionUser._id.toString();
