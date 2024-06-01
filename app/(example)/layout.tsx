@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
-import { Session } from "next-auth";
 import Header from "@/components/header";
 
 export const metadata: Metadata = {
@@ -13,10 +12,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  session,
 }: {
   children: React.ReactNode;
-  session: Session | null;
 }) {
   return (
     <html lang="en">
