@@ -1,3 +1,5 @@
+"use client";
+
 import { NoteCardProps } from "@/utils/definitions";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
