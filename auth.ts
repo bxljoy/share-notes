@@ -4,8 +4,10 @@ import "next-auth/jwt";
 import Google from "next-auth/providers/google";
 import github from "next-auth/providers/github";
 
-import { connectDatabase } from "./utils/database";
-import User from "@/models/user";
+// import { connectDatabase } from "./utils/database";
+// import User from "@/models/user";
+
+import prisma from "@/utils/prisma-client";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Google, github],
@@ -20,11 +22,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
 
       try {
-        const sessionUser = await User.findOne({ email: session.user.email });
-        if (!sessionUser || !sessionUser._id) {
+        // const sessionUser = await User.findOne({ email: session.user.email });
+        const sessionUser = await prisma.users.findUnique({
+          where: {
+            email: session.user.email,
+          },
+        });
+        if (!sessionUser || !sessionUser.id) {
           return session;
         }
-        session.user.id = sessionUser._id.toString();
+        session.user.id = sessionUser.id.toString();
         console.log("session: ", session);
         return session;
       } catch (error) {
@@ -33,18 +40,25 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
     },
     async signIn({ profile }) {
+      if (!profile?.email || !profile?.name) {
+        return false;
+      }
       try {
-        await connectDatabase();
-
         // Check if user exists in the database
-        const userExists = await User.findOne({ email: profile?.email });
+        const userExists = await prisma.users.findUnique({
+          where: {
+            email: profile?.email,
+          },
+        });
 
         // If user does not exist, create a new user
         if (!userExists) {
-          await User.create({
-            email: profile?.email,
-            username: profile?.name,
-            image: profile?.picture,
+          await prisma.users.create({
+            data: {
+              email: profile?.email,
+              username: profile?.name,
+              image: profile?.picture,
+            },
           });
         }
 
