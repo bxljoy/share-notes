@@ -11,7 +11,6 @@ export default function Home() {
       <p className="desc text-center">
         Next.js Creates Share Notes. Create and share useful notes.
       </p>
-
       <Feed />
     </section>
   );
