@@ -8,7 +8,7 @@ export default function Profile({
   handleEdit,
   handleDelete,
 }: {
-  name: string;
+  name: string | null;
   desc: string;
   data: Array<NoteContent>;
   handleEdit?: (note: NoteContent) => void;
