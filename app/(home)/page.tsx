@@ -1,5 +1,7 @@
 import Feed from "@/components/feed";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export default function Home() {
   return (
     <section className="w-full flex-center flex-col">
