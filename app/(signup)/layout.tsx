@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: "Share Notes Sign Up Page.",
 };
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export default function RootLayout({
   children,
 }: {
