@@ -4,9 +4,6 @@ import "next-auth/jwt";
 import Google from "next-auth/providers/google";
 import github from "next-auth/providers/github";
 
-// import { connectDatabase } from "./utils/database";
-// import User from "@/models/user";
-
 import prisma from "@/utils/prisma-client";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -22,7 +19,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
 
       try {
-        // const sessionUser = await User.findOne({ email: session.user.email });
         const sessionUser = await prisma.users.findUnique({
           where: {
             email: session.user.email,
