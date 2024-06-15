@@ -23,12 +23,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           where: {
             email: session.user.email,
           },
+          cacheStrategy: { swr: 60, ttl: 60 },
         });
         if (!sessionUser || !sessionUser.id) {
           return session;
         }
         session.user.id = sessionUser.id.toString();
-        console.log("session: ", session);
+        // console.log("session: ", session);
         return session;
       } catch (error) {
         console.log("Error fetching user from database: ", error);
@@ -45,6 +46,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           where: {
             email: profile?.email,
           },
+          cacheStrategy: { swr: 60, ttl: 60 },
         });
 
         // If user does not exist, create a new user
