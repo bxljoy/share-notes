@@ -39,11 +39,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Error logs (fixing)
+## Error logs (fixed)
 
-Error fetching user from database: [Error: PrismaClient is not configured to run in Vercel Edge Functions or Edge Middleware. In order to run Prisma Client on edge runtime, either:
+Error fetching user from database: [Error: PrismaClient is not configured to run in Vercel Edge Functions or Edge Middleware.] In order to run Prisma Client on edge runtime, either:
 
 - Use Prisma Accelerate: https://pris.ly/d/accelerate
 - Use Driver Adapters: https://pris.ly/d/driver-adapters
 
-If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report]
+For MongoDB, only Prisma Accelerate works.
